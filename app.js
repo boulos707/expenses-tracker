@@ -52,3 +52,16 @@ const updateExpense = (id, newDescription, newAmount) => {
     console.log("Expense not found")
   }
 }
+
+// Delete expenses function
+
+const deleteExpense = (id) => {
+  const expenses = readExpense();
+  const expense = expenses.filter((exp) => exp.id != id);
+  if(expense.length < expenses.length){
+    writeExpense(expense);
+    console.log("Deleted expenses!");
+  }else{
+    console.log("ID not found");
+  }
+}
