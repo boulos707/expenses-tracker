@@ -65,3 +65,39 @@ const deleteExpense = (id) => {
     console.log("ID not found");
   }
 }
+
+// List expenses function
+
+const listExpense = () => {
+  const expenses = readExpense();
+  if(expenses.length > 0){
+    console.log("ID     Description     Amount      Date");
+    expenses.forEach((exp) =>{ `${exp.id}      ${exp.description}      ${exp.amount}     ${exp.date}`});
+  }else{
+    console.log("We don't have any expense!");
+  }
+}
+
+// Summary function (total expense; with an option month filter)
+
+const showSummary = (month = null) =>{
+  const expenses = readExpense();
+  let total = 0;
+  let filterExpense;
+
+  if(month){
+    filterExpense = expenses.filter((exp) => new Date(exp.date).getMonth() +1 === parseInt(month));
+  } else{
+    filterExpense = expenses;
+  }
+
+  filterExpense.forEach((exp) => {
+    total += exp.amount;
+  });
+
+  if(month){
+    console.log(`Total expense for month ${month} is ${total}`)
+  }else{
+    console.log(`Total expense is: ${total}`);
+  }
+}
