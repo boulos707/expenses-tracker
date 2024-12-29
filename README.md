@@ -14,10 +14,10 @@ This is an expense tracker application built using Node.js, allowing users to ad
 1. Clone this repository:
    ```bash
    git clone https://github.com/boulos707/expenses-tracker.git
-   
-Navigate to the project directory:
+
+2. Navigate to the project directory:
    cd expenses-tracker
-Install
+3. Install dependencie:
    npm install
 
 ## Usage
